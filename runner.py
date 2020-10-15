@@ -10,10 +10,6 @@ from helpers.sub import receive_messages
 
 
 if __name__ == '__main__':
-    # True:
-    #    print("Getting jobs list value")
-    #    jobs = get_jobs("cmds.yaml")
-    #    break
     try:
         project_id = "pub-sub-demo-292308"
         subscription_id = "sub_one"
