@@ -17,7 +17,7 @@ def receive_messages(project_id, subscription_id, jobs, timeout=None):
     def callback(message):
         print("Received message: {}".format(message))
         message.ack()
-        jobs.append(message.data)
+        jobs.put(message.data)
 
     streaming_pull_future = subscriber.subscribe(subscription_path, callback=callback)
     print("Listening for messages on {}..\n".format(subscription_path))
