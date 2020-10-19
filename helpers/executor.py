@@ -8,17 +8,17 @@ def execute_job(cmd):
     outputs = {}
     start_time = time.time()
     try:
-        cmd = cmd.get().split()
+        cmd = cmd.split()
         print(cmd)
         output = subprocess.run(cmd, stdout=subprocess.PIPE)
     except subprocess.CalledProcessError as e:
         print(e.output)
-    except FileNotFoundError as e:
+    except OSError as e:
         print("command {} not found".format(cmd))
     finally:
         end_time = time.time()
         outputs["time"] = end_time - start_time
-        if output:
+        if 'output' in locals():
             outputs["ret_code"] = output.returncode
             outputs["output"] = output
         else:

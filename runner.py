@@ -1,5 +1,5 @@
 #TODO - timeout and retry for pub/sub to avoid forever loop
-#TODO - execution 
+#TODO - execution
 
 import multiprocessing
 from time import sleep
